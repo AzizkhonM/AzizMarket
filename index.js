@@ -79,7 +79,7 @@ bot.on("callback_query", (ctx) => {
     }
 
 
-    if (ctx.update.callback_query.data === '👍🏻 Rahmat' || ctx.update.callback_query.data === "😔 Ha, tushunaman" || ctx.update.callback_query.data === "😇 Ulgurarman, kerak emas" || ctx.update.callback_query.data === "😊 Ulguryapman, rahmat") {
+    if (ctx.update.callback_query.data === '👍🏻 Rahmat' || ctx.update.callback_query.data === "😔 Ha, tushunaman" || ctx.update.callback_query.data === "😇 Ulgurarman, kerak emas" || ctx.update.callback_query.data === "😊 Ulguryapman, rahmat" || ctx.update.callback_query.data === "👍🏻 Yordam berdi, rahmat" || ctx.update.callback_query.data === "👍🏻 Xatolik bartaraf bo‘ldi, rahmat") {
 
         ctx.replyWithHTML("<b>Agar yana savol tug‘ilsa ushbu tugmani bossangiz bas</b>", Markup.inlineKeyboard([
 			[{text: "🖐🏻 Menda yana savol bor", callback_data: "🖐🏻 Menda yana savol bor"}],
@@ -229,9 +229,8 @@ bot.on("callback_query", (ctx) => {
 
     if (ctx.update.callback_query.data === '💸 To‘lov va qaytarib berish') {
 
-        ctx.replyWithHTML("<b>Buyurtmalar tarqatish punktida 5 kun davomida saqlanadi.\n\nOlib ketishga ulgurasizmi yoki saqlash muddatini uzaytiramizmi?😊</b>", Markup.inlineKeyboard([
+        ctx.replyWithHTML("<b>Aytingchi, sizning savolingiz nima bilan bog'liq?</b>", Markup.inlineKeyboard([
 			[{text: "💸 Buyurtma uchun to‘lov", callback_data: "💸 Buyurtma uchun to‘lov"}],
-			[{text: "💸 Mablag‘ni qaytarish", callback_data: "💸 Mablag‘ni qaytarish"}],
 			[{text: "🔝 Bosh sahifaga", callback_data: "🔝 Bosh sahifaga"}]
 		]))
 
@@ -260,8 +259,165 @@ bot.on("callback_query", (ctx) => {
     if (ctx.update.callback_query.data === '🛒 Qanday to‘lov turlari mavjud') {
 
         ctx.replyWithHTML("<b>Iltimos, aytingchi, buyurtmani to‘lash bilan bog‘liq qanday savolingiz bor?</b>", Markup.inlineKeyboard([
-			[{text: "🛒 Qanday to‘lov turlari mavjud", callback_data: "🛒 Qanday to‘lov turlari mavjud"}],
-			[{text: "😔 To‘lovda muammo", callback_data: "😔 To‘lovda muammo"}],
+			[{text: "💳 Bank kartalari", callback_data: "💳 Bank kartalari"}],
+			[{text: "📝 Bo‘lib to‘lash", callback_data: "📝 Bo‘lib to‘lash"}],
+			[{text: "💁🏻‍♂️ Qo‘lga olganda to‘lash", callback_data: "💁🏻‍♂️ Qo‘lga olganda to‘lash"}],
+			[{text: "🔝 Bosh sahifaga", callback_data: "🔝 Bosh sahifaga"}]
+		]))
+
+        ctx.editMessageReplyMarkup({
+            reply_markup: { remove_keyboard: true },
+        })
+        
+    }
+
+
+    if (ctx.update.callback_query.data === '💳 Bank kartalari') {
+
+        ctx.replyWithHTML("<b>Onlayn ravishda UZCARD, HUMO kartasi bilan to'lashingiz mumkin.</b>", Markup.inlineKeyboard([
+			[{text: "👍🏻 Rahmat", callback_data: "👍🏻 Rahmat"}],
+			[{text: "🔝 Bosh sahifaga", callback_data: "🔝 Bosh sahifaga"}]
+		]))
+
+        ctx.editMessageReplyMarkup({
+            reply_markup: { remove_keyboard: true },
+        })
+        
+    }
+
+
+    if (ctx.update.callback_query.data === '📝 Bo‘lib to‘lash') {
+
+        ctx.replyWithHTML("<b>To'lov shartlari:\n\n1. Karta kamida 6 oylik bo'lishi kerak.\n2. Karta Humo yoki Uzcard bo'lishi kerak.\n3. Balans nolga teng, 1 so'm yoki undan ko'p bo'lishi kerak.\n4. Kartadagi oxirgi 3 oy uchun tushumlar 1 000 000 so‘mdan ortiq bo‘lishi kerak.\n5. SMS-xabarnoma foydalanuvchi hisob qaydnomasini ro'yxatdan o'tkazgan raqamga ulangan bo'lishi kerak.\n6. Yosh chegarasi 22 yoshdan 65 yoshgacha.\n7. Toʻlov foizi: 6 oyga - 26%, 9 oyga - 34%, 12 oyga - 44%</b>", Markup.inlineKeyboard([
+			[{text: "👍🏻 Rahmat", callback_data: "👍🏻 Rahmat"}],
+			[{text: "🔝 Bosh sahifaga", callback_data: "🔝 Bosh sahifaga"}]
+		]))
+
+        ctx.editMessageReplyMarkup({
+            reply_markup: { remove_keyboard: true },
+        })
+        
+    }
+
+
+    if (ctx.update.callback_query.data === '💁🏻‍♂️ Qo‘lga olganda to‘lash') {
+
+        ctx.replyWithHTML("<b>Buyurtmani qabul qilish vaqtida siz naqd pul yoki UZCARD, HUMO karta orqali to'lashingiz mumkin. Buyurtmani olgandan keyin to'lashda mavjud to'lov tizimlari: Mastercard, Visa.</b>", Markup.inlineKeyboard([
+			[{text: "👍🏻 Rahmat", callback_data: "👍🏻 Rahmat"}],
+			[{text: "🔝 Bosh sahifaga", callback_data: "🔝 Bosh sahifaga"}]
+		]))
+
+        ctx.editMessageReplyMarkup({
+            reply_markup: { remove_keyboard: true },
+        })
+        
+    }
+
+
+    if (ctx.update.callback_query.data === '😔 To‘lovda muammo') {
+
+        ctx.replyWithHTML("<b>Buyurtmalarni onlayn, bo‘lib to‘lash yoki buyurtmani qabul qilish paytida to‘lash mumkin.</b>", Markup.inlineKeyboard([
+			[{text: "💵 To‘lov amalga oshmadi", callback_data: "💵 To‘lov amalga oshmadi"}],
+			[{text: "😔 Promokodni kiritib bo‘lmayabdi", callback_data: "😔 Promokodni kiritib bo‘lmayabdi"}],
+			[{text: "🔝 Bosh sahifaga", callback_data: "🔝 Bosh sahifaga"}]
+		]))
+
+        ctx.editMessageReplyMarkup({
+            reply_markup: { remove_keyboard: true },
+        })
+        
+    }
+
+
+    if (ctx.update.callback_query.data === '💵 To‘lov amalga oshmadi') {
+
+        ctx.replyWithHTML("<b>Buyurtmalarni onlayn, bo‘lib to‘lash yoki buyurtmani qabul qilish paytida to‘lash mumkin.</b>", Markup.inlineKeyboard([
+			[{text: "👍🏻 Yordam berdi, rahmat", callback_data: "👍🏻 Yordam berdi, rahmat"}],
+			[{text: "😔 Hammasi to‘g‘ri, ammo o‘xshamadi", callback_data: "😔Hammasi to‘g‘ri, ammo o‘xshamadi"}],
+			[{text: "🔝 Bosh sahifaga", callback_data: "🔝 Bosh sahifaga"}]
+		]))
+
+        ctx.editMessageReplyMarkup({
+            reply_markup: { remove_keyboard: true },
+        })
+        
+    }
+
+
+    if (ctx.update.callback_query.data === '😔Hammasi to‘g‘ri, ammo o‘xshamadi') {
+
+        ctx.replyWithHTML("<b>Ilovamiz tez-tez yangilanib turganligi sababli, baʼzida bizning ishlab chiquvchilarimiz biror narsani bexosdan kuzatuvdan chetda qoldirishi mumkin. Shuning uchun, ilovani qayta o‘rnatishingizni tavsiya qilamiz. Shunday bilan birga siz kesh-xotirani tozalaysiz, demakki, xatolik yo‘q bo‘lishi mumkin. Xavotir olmang, savatdagi barcha mahsulotlar saqlanib qoladi.</b>", Markup.inlineKeyboard([
+			[{text: "👍🏻 Xatolik bartaraf bo‘ldi, rahmat", callback_data: "👍🏻 Xatolik bartaraf bo‘ldi, rahmat"}],
+			[{text: "😔 Hammasi to‘g‘ri, ammo o‘xshamadi", callback_data: "😔 Hammasi to‘g‘ri, ammo o‘xshamadi"}],
+			[{text: "🔝 Bosh sahifaga", callback_data: "🔝 Bosh sahifaga"}]
+		]))
+
+        ctx.editMessageReplyMarkup({
+            reply_markup: { remove_keyboard: true },
+        })
+        
+    }
+
+
+    if (ctx.update.callback_query.data === '😔 Hammasi to‘g‘ri, ammo o‘xshamadi') {
+
+        ctx.replyWithHTML("<b>Tushunarli, bu holda texnik qo‘llab-quvvatlash mutaxassisini ulayman.\nIltimos, ilovangiz versiyasini yozing.\n\nIlova versiyasini qanday topish mumkin:\n\nAgar sizda iOS bo‘lsa, Profil yorlig‘iga o‘ting va yuqoriga suring.\nIlovaning versiyasi ekranning pastki qismida bo‘ladi.\n\nAgar sizda Android bo‘lsa, unda siz kabinet yorlig‘iga o‘tishingiz va yuqoriga surishingiz kerak.\nIlovaning versiyasi ekranning pastki qismida bo‘ladi.</b>", Markup.inlineKeyboard([
+			[{text: "🔝 Bosh sahifaga", callback_data: "🔝 Bosh sahifaga"}]
+		]))
+
+        ctx.editMessageReplyMarkup({
+            reply_markup: { remove_keyboard: true },
+        })
+        
+    }
+
+
+    if (ctx.update.callback_query.data === '😔 Promokodni kiritib bo‘lmayabdi') {
+
+        ctx.replyWithHTML("<b>Promokodni kiritish bilan bog‘liq texnik muammolar juda kam uchraydi.\n\nTo‘lov uchun barcha ma'lumotlarni: ism, yetkazib berish usuli, telefon raqam, yetkazib berish manzilini to‘g‘ri to‘ldirganingizni tekshirishingizni tavsiya qilamiz.\n\nSo‘ng, takroran yana urinib ko‘ring.\n\nIltimos, ma'lumotda keraksiz belgilar va bo‘shliqlarsiz yozing.</b>", Markup.inlineKeyboard([
+			[{text: "👍🏻 Yordam berdi, rahmat", callback_data: "👍🏻 Yordam berdi, rahmat"}],
+			[{text: "😒 Barchasini bajardim, probel yo‘q", callback_data: "😒 Barchasini bajardim, probel yo‘q"}],
+			[{text: "🔝 Bosh sahifaga", callback_data: "🔝 Bosh sahifaga"}]
+		]))
+
+        ctx.editMessageReplyMarkup({
+            reply_markup: { remove_keyboard: true },
+        })
+        
+    }
+
+
+    if (ctx.update.callback_query.data === '😒 Barchasini bajardim, probel yo‘q') {
+
+        ctx.replyWithHTML("<b>Iltimos, aytingchi, promokodni kiritishda qanday xato yuz beradi?</b>", Markup.inlineKeyboard([
+			[{text: "🙄 Promokod ishlatib bo‘lingan", callback_data: "🙄 Promokod ishlatib bo‘lingan"}],
+			[{text: "⏳ Promokod muddati tugagan", callback_data: "⏳ Promokod muddati tugagan"}],
+			[{text: "🔝 Bosh sahifaga", callback_data: "🔝 Bosh sahifaga"}]
+		]))
+
+        ctx.editMessageReplyMarkup({
+            reply_markup: { remove_keyboard: true },
+        })
+        
+    }
+
+
+    if (ctx.update.callback_query.data === "🙄 Promokod ishlatib bo‘lingan") {
+
+        ctx.replyWithHTML("<b>Promokod ishlatib bo‘lingan</b>", Markup.inlineKeyboard([
+			[{text: "🔝 Bosh sahifaga", callback_data: "🔝 Bosh sahifaga"}]
+		]))
+
+        ctx.editMessageReplyMarkup({
+            reply_markup: { remove_keyboard: true },
+        })
+        
+    }
+
+
+    if (ctx.update.callback_query.data === "⏳ Promokod muddati tugagan") {
+
+        ctx.replyWithHTML("<b>Promokod muddati tugagan</b>", Markup.inlineKeyboard([
 			[{text: "🔝 Bosh sahifaga", callback_data: "🔝 Bosh sahifaga"}]
 		]))
 
