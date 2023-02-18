@@ -35,7 +35,7 @@ bot.on("callback_query", (ctx) => {
 			[{text: "🕛 Saqlash muddati", callback_data: "🕛 Saqlash muddati"},
 			 {text: "💸 To‘lov va qaytarib berish", callback_data: "💸 To‘lov va qaytarib berish"}],
 			[{text: "🔙 Mahsulotni qaytarish", callback_data: "🔙 Mahsulotni qaytarish"},
-			 {text: "📦 Buyurtmadagi mahsulotlar", callback_data: "📦 Buyurtmadagi mahsulotlar"}],
+			 {text: "📦 Buyurtmadagi mahsulotlar", callback_data: "📦Buyurtmadagi mahsulotlar"}],
 			[{text: "🤔 Aziz Market qaysi shaharlarda bor?", callback_data: "🤔 Aziz Market qaysi shaharlarda bor?"}],
 			[{text: "👦🏻 Do‘stim olib ketsa bo‘ladimi?", callback_data: "👦🏻 Do‘stim olib ketsa bo‘ladimi?"}],
 			[{text: "🚚 Yetkazib berish shartlari", callback_data: "🚚 Yetkazib berish shartlari"},
@@ -92,7 +92,7 @@ bot.on("callback_query", (ctx) => {
     }
 
 
-    if (ctx.update.callback_query.data === '☹️ Buyurtmamni vaqtida olmadim' || ctx.update.callback_query.data === "❌ Buyurtmani bekor qilish" || ctx.update.callback_query.data === "👍🏻 Ha, mayli" || ctx.update.callback_query.data === "📅 Yo‘q, hatto bu ham yordam bermaydi" || ctx.update.callback_query.data === "💲 Arzonroq narxda topdim" || ctx.update.callback_query.data === "🐌 Yetkazib berish kuttiryapti" || ctx.update.callback_query.data === "🧦 Qayta buyurtma berdim" || ctx.update.callback_query.data === "🚫 Boshqa sabab" || ctx.update.callback_query.data === "🙋🏻‍♂️ Muddatini uzaytirmoqchiman") {
+    if (ctx.update.callback_query.data === '☹️ Buyurtmamni vaqtida olmadim' || ctx.update.callback_query.data === "❌ Buyurtmani bekor qilish" || ctx.update.callback_query.data === "👍🏻 Ha, mayli" || ctx.update.callback_query.data === "📅 Yo‘q, hatto bu ham yordam bermaydi" || ctx.update.callback_query.data === "💲 Arzonroq narxda topdim" || ctx.update.callback_query.data === "🐌 Yetkazib berish kuttiryapti" || ctx.update.callback_query.data === "🧦 Qayta buyurtma berdim" || ctx.update.callback_query.data === "🚫 Boshqa sabab" || ctx.update.callback_query.data === "🙋🏻‍♂️ Muddatini uzaytirmoqchiman" || ctx.update.callback_query.data === "Boshqa/defekt tovar oldim" || ctx.update.callback_query.data === "🧦 Buyurtmamda mahsulot yetishmadi") {
 
         ctx.replyWithHTML("<b>Iltimos, buyurtma raqamingizni yozing</b>", Markup.inlineKeyboard([
 			[{text: "🔝 Bosh sahifaga", callback_data: "🔝 Bosh sahifaga"}],
@@ -420,6 +420,252 @@ bot.on("callback_query", (ctx) => {
         ctx.replyWithHTML("<b>Promokod muddati tugagan</b>", Markup.inlineKeyboard([
 			[{text: "🔝 Bosh sahifaga", callback_data: "🔝 Bosh sahifaga"}]
 		]))
+
+        ctx.editMessageReplyMarkup({
+            reply_markup: { remove_keyboard: true },
+        })
+        
+    }
+
+
+    if (ctx.update.callback_query.data === '🔙 Mahsulotni qaytarish') {
+
+        ctx.replyWithHTML("<b>Iltimos, ayting-chi, mahsulot sifatiga da'volaringiz bormi?</b>", Markup.inlineKeyboard([
+			[{text: "😒 Bor", callback_data: "😒 Bor"}],
+			[{text: "🙂 Yo‘q", callback_data: "🙂 Yo‘q"}],
+			[{text: "🔝 Bosh sahifaga", callback_data: "🔝 Bosh sahifaga"}]
+		]))
+
+        ctx.editMessageReplyMarkup({
+            reply_markup: { remove_keyboard: true },
+        })
+        
+    }
+
+
+    if (ctx.update.callback_query.data === '😒 Bor') {
+
+        ctx.replyWithHTML("<b>Iltimos, ayting-chi, mahsulot kafolat bilan ta'minlanganmi?</b>", Markup.inlineKeyboard([
+			[{text: "Ha", callback_data: "Ha"}, {text: "Yo‘q", callback_data: "Yo‘q"}],
+			[{text: "🔝 Bosh sahifaga", callback_data: "🔝 Bosh sahifaga"}]
+		]))
+
+        ctx.editMessageReplyMarkup({
+            reply_markup: { remove_keyboard: true },
+        })
+        
+    }
+
+
+    if (ctx.update.callback_query.data === 'Ha') {
+
+        ctx.replyWithHTML("<b>Bunday holda, siz nuqsonli mahsulotni to‘liq saqlangan holda, kafolat muddati davomida sizga qulay bo‘lgan Uzum buyurtma tarqatish punktiga olib kelishingiz mumkin.\n\nUshbu tarqatish punkt ma'muri ekspluatatsiya izlari yo‘qligini tekshiradi va agar ular yo‘q bo‘lsa, mahsulot qaytarish amalga oshiriladi!\n\nE'tibor bering, mahsulot zavod nuqsoni mavjudligini tasdiqlash uchun diagnostikaga qabul qilinishi mumkin. Tekshirish muddati iste‘molchilar huquqlarini himoya qilish to‘g‘risidagi qonunning moddalari bilan tartibga solinadi.</b>", Markup.inlineKeyboard([
+			[{text: "👍🏻 Rahmat", callback_data: "👍🏻 Rahmat"}],
+			[{text: "🔝 Bosh sahifaga", callback_data: "🔝 Bosh sahifaga"}]
+		]))
+
+        ctx.editMessageReplyMarkup({
+            reply_markup: { remove_keyboard: true },
+        })
+        
+    }
+
+
+    if (ctx.update.callback_query.data === 'Yo‘q') {
+
+        ctx.replyWithHTML("<b>Bunday holda, siz nuqsonli mahsulotni to‘liq saqlangan holda, 6 oy mobaynida sizga qulay bo‘lgan Uzum buyurtma tarqatish punktiga olib kelishingiz mumkin.\n\nUshbu tarqatish punkt ma'muri ekspluatatsiya izlari yo‘qligini tekshiradi va agar ular yo‘q bo‘lsa, mahsulot qaytarish amalga oshiriladi!\n\nE'tibor bering, mahsulot zavod nuqsoni mavjudligini tasdiqlash uchun diagnostikaga qabul qilinishi mumkin. Tekshirish muddati iste‘molchilar huquqlarini himoya qilish to‘g‘risidagi qonunning moddalari bilan tartibga solinadi.</b>", Markup.inlineKeyboard([
+			[{text: "👍🏻 Rahmat", callback_data: "👍🏻 Rahmat"}],
+			[{text: "🔝 Bosh sahifaga", callback_data: "🔝 Bosh sahifaga"}]
+		]))
+
+        ctx.editMessageReplyMarkup({
+            reply_markup: { remove_keyboard: true },
+        })
+        
+    }
+
+
+    if (ctx.update.callback_query.data === '🙂 Yo‘q') {
+
+        ctx.replyWithHTML("<b>Iltimos, ayting-chi, buyurtmani olgan kundan boshlab necha kun o‘tdi?</b>", Markup.inlineKeyboard([
+			[{text: "10 kun yoki kamroq", callback_data: "10 kun yoki kamroq"}],
+			[{text: "10 kundan oshdi", callback_data: "10 kundan oshdi"}],
+			[{text: "🔝 Bosh sahifaga", callback_data: "🔝 Bosh sahifaga"}]
+		]))
+
+        ctx.editMessageReplyMarkup({
+            reply_markup: { remove_keyboard: true },
+        })
+        
+    }
+
+
+    if (ctx.update.callback_query.data === "10 kun yoki kamroq") {
+
+        ctx.replyWithHTML("<b>Iltimos, ayting-chi, mahsulot upakovkasini saqlab qolganmi va kundalik hayotda ishlatilmaganmi?</b>", Markup.inlineKeyboard([
+			[{text: "☺️ Ha", callback_data: "☺️ Ha"}],
+			[{text: "🤔 Yo‘q", callback_data: "🤔 Yo‘q"}],
+			[{text: "🔝 Bosh sahifaga", callback_data: "🔝 Bosh sahifaga"}]
+		]))
+
+        ctx.editMessageReplyMarkup({
+            reply_markup: { remove_keyboard: true },
+        })
+        
+    }
+
+
+    if (ctx.update.callback_query.data === "☺️ Ha") {
+
+        ctx.replyWithHTML("<b>Siz buyurtma olingan kundan boshlab 10 kun ichida mahsulotni mahsulot tarqatish punktiga olib kelishingiz mumkin, ma'mur ekspluatatsiya izlari yo‘qligini tekshiradi va agar ular yo‘q bo‘lsa, biz sizga qaytarib beramiz.\n\nAgar sizning mahsulotingiz qaytarib berilmaydiganlar ro‘yxatiga kiritilgan bo‘lsa, afsuski, qaytarib berish mumkin emas. Qaytarib berilmaydigan tovarlar ro‘yxati bizning veb-saytimizda keltirilgan: https://uzum.uz/faq</b>", Markup.inlineKeyboard([
+			[{text: "👍🏻 Rahmat", callback_data: "👍🏻 Rahmat"}],
+			[{text: "🔝 Bosh sahifaga", callback_data: "🔝 Bosh sahifaga"}]
+		]))
+
+        ctx.editMessageReplyMarkup({
+            reply_markup: { remove_keyboard: true },
+        })
+        
+    }
+
+
+    if (ctx.update.callback_query.data === "🤔 Yo‘q") {
+
+        ctx.replyWithHTML("<b>Afsuski, biz bunday mahsulotni qaytarib olish uchun qabul qila olmaymiz😞\n\nAmmo siz sotuvchiga ushbu holatdagi mahsulotni qaytarish qilishni tasdiqlash uchun yozishingiz mumkin, ehtimol u sizga 7 kundan ortiq vaqt o‘tgan bo‘lsa ham yoki mahsulot kundalik hayotda ishlatilgan bo‘lsa ham, mahsulotni qaytarib berishga ruxsat berishi mumkin.</b>", Markup.inlineKeyboard([
+			[{text: "😔 Ha, tushunaman", callback_data: "😔 Ha, tushunaman"}],
+			[{text: "👨🏻‍💻💻 Sotuvchiga qanday qilib yozish mumkin?", callback_data: "👨🏻‍💻💻 Sotuvchiga qanday qilib yozish mumkin?"}],
+			[{text: "🔝 Bosh sahifaga", callback_data: "🔝 Bosh sahifaga"}]
+		]))
+
+        ctx.editMessageReplyMarkup({
+            reply_markup: { remove_keyboard: true },
+        })
+        
+    }
+
+
+    if (ctx.update.callback_query.data === "👨🏻‍💻💻 Sotuvchiga qanday qilib yozish mumkin?") {
+
+        ctx.replyWithHTML("<b>Buning uchun Uzum Market mobil ilovasiga o‘ting, qaytarib bermoqchi bo‘lgan mahsulotni tanlang, pastga o‘ting va \"Sotuvchiga savol berish\" 🧑‍💻 tugmasini bosing.\n\nAgar sotuvchi ikki kun ichida aloqaga chiqmasa - iltimos, bizga botning asosiy menyusidagi \"Mutaxassisga savol berish\" tugmasi orqali xabar bering. Biz do‘kon vakilining reaksiya vaqtini tezlashtirishga harakat qilamiz.</b>", Markup.inlineKeyboard([
+			[{text: "👍🏻 Rahmat", callback_data: "👍🏻 Rahmat"}],
+			[{text: "🔝 Bosh sahifaga", callback_data: "🔝 Bosh sahifaga"}]
+		]))
+
+        ctx.editMessageReplyMarkup({
+            reply_markup: { remove_keyboard: true },
+        })
+        
+    }
+
+
+    if (ctx.update.callback_query.data === "📦Buyurtmadagi mahsulotlar") {
+
+        ctx.replyWithHTML("<b>Aytingchi, mahsulot bilan bog‘liq qanday savolingiz bor?</b>", Markup.inlineKeyboard([
+			[{text: "Boshqa/defekt tovar oldim", callback_data: "Boshqa/defekt tovar oldim"}],
+			[{text: "Tovarni ishlata olmadim", callback_data: "Tovarni ishlata olmadim"}],
+			[{text: "🧦 Buyurtmamda mahsulot yetishmadi", callback_data: "🧦 Buyurtmamda mahsulot yetishmadi"}],
+			[{text: "🔝 Bosh sahifaga", callback_data: "🔝 Bosh sahifaga"}]
+		]))
+
+        ctx.editMessageReplyMarkup({
+            reply_markup: { remove_keyboard: true },
+        })
+        
+    }
+
+
+    if (ctx.update.callback_query.data === "Tovarni ishlata olmadim") {
+
+        ctx.replyWithHTML("<b>Mahsulotning xususiyatlari va jihatlari, shuningdek uni qanday qilib to‘g‘ri ishlatish haqida siz mahsulot tavsifida o‘qishingiz mumkin. Shuningdek, sotuvchidan batafsil ma'lumot olishingiz mumkin.\n\nBuning uchun Uzum Market mobil ilovasida istalgan va sizni qiziqtirgan mahsulotni tanlang, tanishib chiqing va \"Sotuvchiga savol berish\" tugmasini bosing.\n\nAgar sotuvchi bir kun ichida aloqaga chiqmasa - iltimos, bizga xabar bering - botning asosiy menyusidagi \"Mutaxassisga savol yo‘llash\" tugmasi orqali. Biz do‘kon vakilining reaksiya vaqtini tezlashtirishga harakat qilamiz.</b>", Markup.inlineKeyboard([
+			[{text: "👍🏻 Rahmat", callback_data: "👍🏻 Rahmat"}],
+			[{text: "🔝 Bosh sahifaga", callback_data: "🔝 Bosh sahifaga"}]
+		]))
+
+        ctx.editMessageReplyMarkup({
+            reply_markup: { remove_keyboard: true },
+        })
+        
+    }
+
+
+    if (ctx.update.callback_query.data === "🤔 Aziz Market qaysi shaharlarda bor?") {
+
+        ctx.replyWithHTML("<b>Biz Toshkent, Farg‘ona vodiysi, Andijon, Namangan, Qo‘qon, Marg‘ilon, Samarqand, Jizzax, Navoiy, qarshi va Buxoro shaharlarida ochilishga muvaffaq bo‘ldik! Biz o‘z faoliyatimizni yanada kengaytiramiz va sizni mijozlarimiz qatorida ko‘rishdan chin dildan xursand bo‘lamiz✨Yangilanishlarimizni kuzatib boring😇Bizning barcha harakatlarimiz siz uchun!\n\nMahsulot tarqatish punktlari manzillari: https://uzum.uz/about/delivery-points \n\nHar bir tarqatish punktida manzili va ish jadvali ko‘rsatilgan💜</b>", Markup.inlineKeyboard([
+			[{text: "👍🏻 Rahmat", callback_data: "👍🏻 Rahmat"}],
+			[{text: "🔝 Bosh sahifaga", callback_data: "🔝 Bosh sahifaga"}]
+		]))
+
+        ctx.editMessageReplyMarkup({
+            reply_markup: { remove_keyboard: true },
+        })
+        
+    }
+
+
+    if (ctx.update.callback_query.data === "👦🏻 Do‘stim olib ketsa bo‘ladimi?") {
+
+        ctx.replyWithHTML("<b>Sizning buyurtmangiz bo‘lib to‘lash asosida qoldirilganmi?</b>", Markup.inlineKeyboard([
+			[{text: "Ha", callback_data: "Ha_muddat"}],
+			[{text: "Yo‘q", callback_data: "Yo‘q_muddat"}]
+		]))
+
+        ctx.editMessageReplyMarkup({
+            reply_markup: { remove_keyboard: true },
+        })
+        
+    }
+
+
+    if (ctx.update.callback_query.data === "Ha_muddat") {
+
+        ctx.replyWithHTML("<b>Afsuski, sizning buyurtmangizni boshqa shaxs olib bo‘lmaydi, chunki u bo‘lib-bo‘lib amalga oshiriladi. Bo‘lib to‘lash buyurtmasini faqat to‘lovni rejalashtiruvchi qabul qilishi mumkin. To‘lov shartnomasini tuzish uchun siz pasport bilan kelishingiz kerak.</b>", Markup.inlineKeyboard([
+			[{text: "😔 Ha, tushunaman", callback_data: "😔 Ha, tushunaman"}],
+			[{text: "🔝 Bosh sahifaga", callback_data: "🔝 Bosh sahifaga"}]
+		]))
+
+        ctx.editMessageReplyMarkup({
+            reply_markup: { remove_keyboard: true },
+        })
+        
+    }
+
+
+    if (ctx.update.callback_query.data === "Yo‘q_muddat") {
+
+        ctx.replyWithHTML("<b>Boshqa odam buyurtmani olishi mumkin, buning uchun unga buyurtma raqami va qabul qilish kodini berish kerak.\n\nAgar siz PUSH-bildirishnomani o‘tkazib yuborgan bo‘lsangiz, uni ilovaning \"Mening buyurtmalarim\" bo‘limida \"Joriy\" buyurtma yorlig‘i ichida \"Buyurtmani olish\" tugmasi - kod shu yerda joylashgan.\n\nShuningdek, qabul qiluvchida shaxsni tasdiqlovchi hujjat bo‘lishi kerak.</b>", Markup.inlineKeyboard([
+			[{text: "👍🏻 Rahmat", callback_data: "👍🏻 Rahmat"}],
+			[{text: "🔝 Bosh sahifaga", callback_data: "🔝 Bosh sahifaga"}]
+		]))
+
+        ctx.editMessageReplyMarkup({
+            reply_markup: { remove_keyboard: true },
+        })
+        
+    }
+
+
+    if (ctx.update.callback_query.data === "🚚 Yetkazib berish shartlari") {
+
+        ctx.replyWithHTML("<b>UZUM tarqatish punktiga yetkazib berish bepul.\n\nKuryer orqali yetkazib berish 30 000 so‘mni tashkil qiladi, agar buyurtma miqdori 490 000 so‘mdan yuqori bo‘lsa, buyurtma shaharning istalgan nuqtasiga bepul olib kelinadi. Buyurtmalaringizni mamnuniyat bilan yetkazib beramiz!</b>", Markup.inlineKeyboard([
+			[{text: "👍🏻 Rahmat", callback_data: "👍🏻 Rahmat"}],
+			[{text: "🔝 Bosh sahifaga", callback_data: "🔝 Bosh sahifaga"}]
+		]))
+
+        ctx.editMessageReplyMarkup({
+            reply_markup: { remove_keyboard: true },
+        })
+        
+    }
+
+
+    if (ctx.update.callback_query.data === "😒 Javob topa olmadim") {
+
+        ctx.replyWithHTML("<b>Istasangiz quyidagi telefon raqamiga qo‘ng‘iroq qilib o‘zingizni qizitrigan savolga javob topishingiz mumkin</b>", Markup.inlineKeyboard([
+			[{text: "👍🏻 Rahmat", callback_data: "👍🏻 Rahmat"}],
+			[{text: "🔝 Bosh sahifaga", callback_data: "🔝 Bosh sahifaga"}]
+		]))
+
+        ctx.replyWithContact("+998908228249", "Uzum")
 
         ctx.editMessageReplyMarkup({
             reply_markup: { remove_keyboard: true },
